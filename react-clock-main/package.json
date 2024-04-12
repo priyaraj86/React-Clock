@@ -1,0 +1,29 @@
+{
+  "name": "react-clock-monorepo",
+  "version": "1.0.0",
+  "description": "react-clock monorepo",
+  "type": "module",
+  "workspaces": [
+    "packages/*",
+    "test"
+  ],
+  "scripts": {
+    "build": "yarn workspace react-clock build",
+    "dev": "yarn workspace react-clock watch & yarn workspace test dev",
+    "lint": "yarn workspaces foreach --all run lint",
+    "postinstall": "husky",
+    "prettier": "yarn workspaces foreach --all run prettier",
+    "test": "yarn workspaces foreach --all run test",
+    "tsc": "yarn workspaces foreach --all run tsc",
+    "unit": "yarn workspaces foreach --all run unit"
+  },
+  "devDependencies": {
+    "husky": "^9.0.0",
+    "lint-staged": "^15.0.0",
+    "prettier": "^3.2.0"
+  },
+  "resolutions": {
+    "eslint-plugin-import": "npm:eslint-plugin-i@^2.28.0"
+  },
+  "packageManager": "yarn@4.1.1"
+}
